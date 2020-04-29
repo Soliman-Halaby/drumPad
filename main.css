@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root
+{
+    --primaryColor : #F37335;
+    --yellow: #FDC830;
+    --white : #FFFFFF;
+    --black: #000000;
+    --grey: #999999;
+    --greyDisplay: #999999;
+    --boxShadowOrange : #F3733544;
+    --boxShadowBlack : #00000034;
+    --middleGrey : #444444;
+    --padsRow1 : #444444;
+    --padsRow2 : #444444;
+    --padsRow3 : #444444;
+    
+}
+[data-theme="fire"]
+{
+    --padsRow1 : #e74c3c;
+    --padsRow2 : #e67e22;
+    --padsRow3 : #f1c40f;
+    --greyDisplay: #F37335;
+}
+body
+{
+    background: linear-gradient(var(--yellow), var(--primaryColor));
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+}
+
+/***********
+
+TITLE OF THE PAGE & ANIMATION
+
+***********/
+
+.title
+{
+    text-align: center;
+    font-weight: 700px;
+    font-size: 35px;
+    text-transform: uppercase;
+    color: var(--white);
+    text-shadow: 5px 5px 20px var(--boxShadowOrange);
+    transition: 0.5s linear;
+}
+
+.title:hover
+{
+    letter-spacing: 20px;
+    transition: 0.5s linear;
+}
+
+.container
+{
+    width: 960px;
+    height: 500px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px var(--boxShadowOrange);
+}
+
+/***********
+
+Text display middle of the page
+
+***********/
+.displayText
+{
+    width: 300px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 3px;
+    border-radius: 10px;
+    background: var(--greyDisplay);
+    box-shadow: 4px 4px 10px var(--boxShadowBlack);
+    color: var(--white);
+    display: flex;
+    letter-spacing: 6px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    text-transform: uppercase
+}
+
+/***********
+
+Checkbox to put the power on / off of the drum pad
+
+***********/
+.powerCheckbox
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  padding: 0;
+  border: 0;
+  width: 64px;
+  height: 32px;
+  border-radius: 32px;
+  transition: background-position 0.4s ease, background-color 0.4s ease;
+  background-color: var(--grey);
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4gICAgICAgIDx0aXRsZT5PdmFsIDE0PC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTE0IiBmaWxsPSIjRkZGRkZGIiBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiPjwvY2lyY2xlPiAgICA8L2c+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-position: top 2px left 2px;
+  background-size: 28px;
+  cursor: pointer;
+}
+
+.powerCheckbox:checked
+{
+    background-color: var(--primaryColor);
+    background-position: top 2px left 34px;
+}
+
+.powerCheckbox:focus 
+{
+    outline: 0;
+}
+
+/***********
+
+Pads Container and Pads colors
+
+***********/
+
+.padsContainer
+{
+    width: 550px;
+    height: 400px;
+    display: flex;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box
+{
+    width: 110px;
+    height: 110px;
+    margin: 10px 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    box-shadow: 4px 4px 10px var(--boxShadowBlack) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--grey);
+    user-select: none;
+    transition: 0.2s ease
+}
+
+.box:hover
+{
+    opacity: 0.8;
+}
+
+.pressed
+{
+    border: 1px solid var(--middleGrey);
+    transform: scale(1.1);
+}
+
+.key1, .key2, .key3, .key4
+{
+    background: var(--padsRow1);
+}
+.key5, .key6, .key7, .key8
+{
+    background: var(--padsRow2);
+}
+.key9, .key10, .key11, .key12
+{
+    background: var(--padsRow3);
+}
+
+/***********
+
+ASIDE VOLUME FEATURE 
+
+***********/
+
+.volumeContainer
+{
+    position: relative;
+    top: -470px;
+    left: 840px;
+}
+.volumePlus, .volumeLess   
+{
+    display: inline-block;
+    font-size: 25px;
+    line-height: 35px;
+    width: 35px;
+    height: 35px;
+    border-radius: 9px;
+    background: var(--greyDisplay);
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.volumeText
+{
+    margin-left: 20px;
+}
+.volumeValue
+{
+    margin-left: 35px;
+}

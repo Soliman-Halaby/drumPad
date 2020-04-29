@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Drum Pad</title>
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, sed? Fuga atque qui quasi pariatur labore quaerat sapiente, dolorum eius nostrum fugiat veniam magnam tempore, enim quisquam exercitationem officia nihil.
+    <h1 class="title"> Drum Pad</h1>
+    <div class="container">
+
+        <!-- CHECKBOX POWER ON / OFF -->
+        <input type="checkbox" class="powerCheckbox"/>
+        <div class="displayText">
+            <span class="textDisplay"></span>
+        </div>
+
+        <!-- PADS CONTAINER & PADS WITH SOME INFOS -->
+        <div class="padsContainer">
+            <div data-key="65" class="box key1">A</div>
+            <div data-key="90" class="box key2">Z</div>
+            <div data-key="69" class="box key3">E</div>
+            <div data-key="82" class="box key4">R</div>
+            <div data-key="81" class="box key5">Q</div>
+            <div data-key="83" class="box key6">S</div>
+            <div data-key="68" class="box key7">D</div>
+            <div data-key="70" class="box key8">F</div>
+            <div data-key="87" class="box key9">W</div>
+            <div data-key="88" class="box key10">X</div>
+            <div data-key="67" class="box key11">C</div>
+            <div data-key="86" class="box key12">V</div>
+        </div>
+
+        <!-- VOLUME OPTION FEATURE -->
+        <div class="volumeContainer">
+            <span class="volumeText">Volume</span></br>
+            <span class="volumePlus">+</span>
+            <span class="volumeLess">-</span></br>
+            <span class="volumeValue">?</span>
+        </div>
+    </div>
+
+     <!-- DIFFERENT AUDIOS OF THE GAME -->
+    <audio data-key="65" data-id="ahh" src="./audio/ahh.wav"></audio>
+    <audio data-key="90" data-id="boom" src="./audio/boom.wav"></audio>
+    <audio data-key="69" data-id="boomhaa" src="./audio/boomhaa.wav"></audio>
+    <audio data-key="82" data-id="breath" src="./audio/breath.wav"></audio>
+    <audio data-key="81" data-id="catchit" src="./audio/catchit.wav"></audio>
+    <audio data-key="83" data-id="chick" src="./audio/chick.wav"></audio>
+    <audio data-key="68" data-id="clap" src="./audio/clap.wav"></audio>
+    <audio data-key="70" data-id="hat" src="./audio/hat.wav"></audio>
+    <audio data-key="87" data-id="huhuhpoof" src="./audio/huhuhpoof.wav"></audio>
+    <audio data-key="88" data-id="pasis" src="./audio/pasis.wav"></audio>
+    <audio data-key="67" data-id="wawa" src="./audio/wawa.wav"></audio>
+    <audio data-key="86" data-id="buff" src="./audio/buff.wav"></audio>
+
+    <script src= "./script.js"></script>
 </body>
 </html>
