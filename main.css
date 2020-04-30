@@ -193,7 +193,7 @@ ASIDE VOLUME FEATURE
     width: 150px;
     position: relative;
     top: -400px;
-    left: 10px;
+    left: 780px;
 }
 .volumeText
 {
@@ -263,3 +263,44 @@ INPUT TYPE RANGE
 input::-moz-focus-inner, input::-moz-focus-outer {
     border: 0;
 }
+
+@media (max-width: 1260px) 
+{
+    .displayText
+    {
+        width: 300px;
+    }
+    .container
+    {
+        width: 700px;
+        height: 430px;
+    }
+    .box
+    {
+        width: 80px;
+        height: 80px;
+    }
+
+    .padsContainer
+    {
+        width: 400px;
+        height: 300px;
+    }
+
+    .volumeContainer
+    {
+        width: 110px;
+        position: relative;
+        top: -370px;
+        left: 520px;
+    }
+    .range-slider 
+    {
+        width: 150px;
+    }
+    .range-slider__range 
+    {
+        width: 100px;
+    }
+}
+

@@ -106,9 +106,6 @@ function clickAudio(event) {
 
     audio.currentTime = 0
     audio.play()
-    
-
-
 }
 
 // Function that remove the scale and border after the key is pressed
@@ -117,12 +114,3 @@ function scaleRemove()
 {
     this.classList.remove('pressed')
 }
-
-// function clickAudio(event)
-// {
-//     console.log(event)
-// }
-
-// allPads.forEach(pads => pads.addEventListener('click', clickAudio))
-
-
