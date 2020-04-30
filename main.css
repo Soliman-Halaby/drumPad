@@ -209,10 +209,6 @@ INPUT TYPE RANGE
 *, *:before, *:after {
     box-sizing: border-box;
 }
-body {
-    font-family: sans-serif;
-    padding: 60px 20px;
-}
 
 .range-slider {
     margin: 20px 0 0 0%;
