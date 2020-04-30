@@ -28,6 +28,7 @@ body
     background: linear-gradient(-145deg, var(--yellow), var(--primaryColor));
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
+    user-select: none;
 }
 
 /***********
@@ -154,7 +155,6 @@ Pads Container and Pads colors
     justify-content: center;
     align-items: center;
     color: var(--white);
-    user-select: none;
     transition: 0.2s ease
 }
 
@@ -166,7 +166,7 @@ Pads Container and Pads colors
 .pressed
 {
     border: 1px solid var(--middleGrey);
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .key1, .key2, .key3, .key4
@@ -211,7 +211,7 @@ INPUT TYPE RANGE
 }
 
 .range-slider {
-    margin: 20px 0 0 0%;
+    margin: 10px 0 0 0%;
 }
 .range-slider {
     width: 200px;
