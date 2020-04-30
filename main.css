@@ -238,9 +238,9 @@ INPUT TYPE RANGE
 .range-slider__range::-webkit-slider-thumb:hover {
     background: var(--greyDisplay);
 }
-/* .range-slider__range:active::-webkit-slider-thumb {
+.range-slider__range:active::-webkit-slider-thumb {
     background: var(--greyDisplay);
-} */
+}
 .range-slider__range::-moz-range-thumb {
     width: 15px;
     height: 15px;
