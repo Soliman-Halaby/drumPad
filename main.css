@@ -190,33 +190,80 @@ ASIDE VOLUME FEATURE
 
 .volumeContainer
 {
+    width: 150px;
     position: relative;
-    top: -470px;
-    left: 840px;
+    top: -400px;
+    left: 10px;
 }
-.volumePlus, .volumeLess   
-{
-    display: inline-block;
-    font-size: 25px;
-    line-height: 35px;
-    width: 35px;
-    height: 35px;
-    border-radius: 9px;
-    background: var(--greyDisplay);
-    color: var(--white);
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .volumeText
 {
-    margin-left: 20px;
+    display: flex;
+    justify-content: center
 }
-.volumeValue
-{
-    margin-left: 35px;
+/************
+
+INPUT TYPE RANGE 
+
+*************/
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    padding: 60px 20px;
+}
+
+.range-slider {
+    margin: 20px 0 0 0%;
+}
+.range-slider {
+    width: 200px;
+}
+.range-slider__range {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--padsRow3);
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+.range-slider__range::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--padsRow1);
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+.range-slider__range::-webkit-slider-thumb:hover {
+    background: var(--greyDisplay);
+}
+.range-slider__range:active::-webkit-slider-thumb {
+    background: var(--greyDisplay);
+}
+.range-slider__range::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--padsRow1);
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+.range-slider__range::-moz-range-thumb:hover {
+    background: var(--greyDisplay);
+}
+.range-slider__range:active::-moz-range-thumb {
+    background: var(--greyDisplay);
+}
+.range-slider__range:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--greyDisplay);
+}
+
+input::-moz-focus-inner, input::-moz-focus-outer {
+    border: 0;
 }
