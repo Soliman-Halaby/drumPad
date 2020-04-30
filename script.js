@@ -8,7 +8,6 @@ const padsRow3 = document.querySelectorAll('.key9, .key10, .key11, .key12')
 const allPads = document.querySelectorAll('.box')
 const volumeInput = document.querySelector('.volumeInput')
 const volumeDisplay = document.querySelector('.volumeDisplay')
-console.log(volumeDisplay)
 
 
 // volumeInput.addEventListener('click', () => 
@@ -32,7 +31,7 @@ checkBox.addEventListener('change', () =>
             allPads[i].addEventListener('click', clickAudio)
         }
         allPads.forEach(pads => pads.addEventListener('transitionend', scaleRemove))
-        volumeInput.addEventListener('click', () =>
+        volumeInput.addEventListener('mousemove', () =>
         {
             volumeDisplay.textContent = Math.floor(volumeInput.value * 100)
         })
