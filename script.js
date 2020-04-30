@@ -49,7 +49,7 @@ checkBox.addEventListener('change', () =>
         {
             allPads[i].removeEventListener('click', clickAudio)
         }
-        volumeInput.addEventListener('click', () =>
+        volumeInput.addEventListener('mousemove', () =>
         {
             volumeDisplay.textContent = ""
         })
