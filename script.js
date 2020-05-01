@@ -23,6 +23,8 @@ checkBox.addEventListener('change', () =>
     if(checkBox.checked)
     {
         volumeDisplay.textContent = Math.floor(volumeInput.value * 100)
+
+        // Change the theme (colors)
         document.documentElement.setAttribute('data-theme', 'fire');
         textDisplay.textContent = 'Welcome'
         window.addEventListener('keydown', audioPlay)
@@ -37,8 +39,7 @@ checkBox.addEventListener('change', () =>
         })
     }
 
-    // If the toggle is not checked we can't use the drum pad and no colors or audio
-
+    // If the checkbox is not checked we can't use the drum pad and no colors or audio
     else
     {
         volumeDisplay.textContent = ""
@@ -56,11 +57,9 @@ checkBox.addEventListener('change', () =>
     }
 })
 // Function that plays audio when the key is pressed
-
 function audioPlay(event) 
 {
     // Take the audio according to the keyCode
-
     const audio = document.querySelector(`audio[data-key='${event.keyCode}']`)
     if(!audio)
     {
@@ -72,34 +71,34 @@ function audioPlay(event)
     textDisplay.textContent = nameAudio
 
     // Take the keyCode from the key pressed
-
     const pads = document.querySelector(`.box[data-key='${event.keyCode}']`)
-    audio.volume = volumeInput.value
-    // If no audio stop the function
 
+    // Define the audio volume depending on the input
+    audio.volume = volumeInput.value
+
+    // If no audio stop the function
     audio.currentTime = 0
     audio.play()
     pads.classList.add('pressed')
 }
 
 // Function to play audio on click
-
 function clickAudio(event) {
 
     // Take the elements depending on the click
-
     const padsName = event.srcElement.className;
     const padsClass = document.querySelector(`.box[class='${padsName}']`)
     const padsKey = padsClass.getAttribute("data-key")
 
     // Take each pad, and add the class pressed if clicked 
-    
     const pads = document.querySelector(`.box[data-key='${padsKey}']`)
     pads.classList.add('pressed')
     const audio = document.querySelector(`audio[data-key='${padsKey}']`)
     if(!audio) {
       return;
     }
+
+    // Define the audio volume depending on the input
     audio.volume = volumeInput.value
     const nameAudio = audio.getAttribute('data-id')
     textDisplay.textContent = nameAudio
@@ -114,3 +113,37 @@ function scaleRemove()
 {
     this.classList.remove('pressed')
 }
+
+// Preparing theme 2 
+const newTheme = document.querySelector('.newTheme')
+let themeDisplay = document.querySelector('.themeDisplay')
+
+newTheme.addEventListener('click', () =>
+{
+    let themeContent = themeDisplay.textContent
+    if(themeContent = "Fire")
+    {
+        themeDisplay.textContent = "normal"
+    }
+    else if(themeContent = "normal")
+    {
+        console.log('coucou')
+        themeDisplay.textContent = "Fire"
+    }
+})
+function audioPlay2(event)
+{
+    const audio = document.querySelector(`audio[data-info='${event.keyCode}']`)
+    if(!audio)
+    {
+      return;
+    }
+    const nameAudio = audio.getAttribute('data-id')
+    textDisplay.textContent = nameAudio
+    const pads = document.querySelector(`.box[data-key='${event.keyCode}']`)
+    audio.currentTime = 0
+    audio.play()
+    pads.classList.add('pressed')
+}
+
+window.addEventListener('keydown', audioPlay2)
