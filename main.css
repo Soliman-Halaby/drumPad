@@ -23,6 +23,16 @@
     --padsRow3 : #f1c40f;
     --greyDisplay: #F37335;
 }
+
+[data-theme="sea"]
+{
+    --padsRow1 : #70a1ff;
+    --padsRow2 : #1e90ff;
+    --padsRow3 : #5352ed;
+    --greyDisplay: #3742fa;
+    --yellow : #373B44;
+    --primaryColor : #4286f4;
+}
 body
 {
     background: linear-gradient(-145deg, var(--yellow), var(--primaryColor));
@@ -266,6 +276,26 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     border: 0;
 }
 
+/************
+
+NEW THEME BUTTON
+
+************/
+
+.newTheme
+{
+    width: 60px;
+    height: 30px;
+    background: var(--primaryColor);
+    border-radius: 10px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -370px;
+    color: var(--white)
+}
 /************
 
 RESPONSIVE

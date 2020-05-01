@@ -121,12 +121,14 @@ let themeDisplay = document.querySelector('.themeDisplay')
 newTheme.addEventListener('click', () =>
 {
     let themeContent = themeDisplay.textContent
-    if(themeContent = "Fire")
+    if(themeContent == "Fire" && checkBox.checked) 
     {
-        themeDisplay.textContent = "normal"
+        document.documentElement.setAttribute('data-theme', 'sea');
+        themeDisplay.textContent = "Sea"
     }
-    else if(themeContent = "normal")
+    else if(themeContent == "Sea" && checkBox.checked) 
     {
+        document.documentElement.setAttribute('data-theme', 'fire');
         console.log('coucou')
         themeDisplay.textContent = "Fire"
     }
