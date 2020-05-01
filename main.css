@@ -40,7 +40,6 @@ body
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
     user-select: none;
-    cursor: pointer;
 }
 
 /***********
@@ -59,6 +58,7 @@ TITLE OF THE PAGE & ANIMATION
     text-shadow: 5px 5px 20px var(--boxShadowOrange);
     transition: 0.5s linear;
     letter-spacing: 10px;
+    cursor: pointer;
 }
 
 .title:hover
@@ -75,6 +75,7 @@ TITLE OF THE PAGE & ANIMATION
     background: var(--white);
     border-radius: 20px;
     box-shadow: 5px 5px 20px var(--boxShadowOrange);
+    cursor: pointer;
 }
 
 /***********
@@ -316,8 +317,10 @@ footer
     margin: 10px;
     display: flex;
     justify-content: center;
-    color: var(--white)
+    color: var(--white);
+    cursor: pointer;
 }
+
 /************
 
 RESPONSIVE

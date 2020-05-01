@@ -43,10 +43,15 @@ checkBox.addEventListener('change', () =>
         volumeDisplay.textContent = ''
         document.documentElement.setAttribute('data-theme', 'default');
         textDisplay.textContent = ''
+        window.removeEventListener('keydown', audioPlay2)
         window.removeEventListener('keydown', audioPlay)
         for (let i = 0; i < allPads.length; i++) 
         {
             allPads[i].removeEventListener('click', clickAudio)
+        }
+        for (let i = 0; i < allPads.length; i++) 
+        {
+            allPads[i].removeEventListener('click', clickAudio2)
         }
         volumeInput.addEventListener('mousemove', () =>
         {
