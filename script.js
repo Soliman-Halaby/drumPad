@@ -27,7 +27,14 @@ checkBox.addEventListener('change', () =>
         // Change the theme (colors)
         document.documentElement.setAttribute('data-theme', 'fire');
         textDisplay.textContent = 'Welcome'
-        window.addEventListener('keydown', audioPlay)
+        if(themeDisplay == "Sea" && checkBox.checked)
+        {
+            window.addEventListener('keydown', audioPlay2)
+        }
+        else(themeDisplay == "Fire" && checkBox.checked)
+        {
+            window.addEventListener('keydown', audioPlay)
+        }
         for (let i = 0; i < allPads.length; i++) 
         {
             allPads[i].addEventListener('click', clickAudio)
@@ -37,6 +44,7 @@ checkBox.addEventListener('change', () =>
         {
             volumeDisplay.textContent = Math.floor(volumeInput.value * 100)
         })
+        newTheme.addEventListener('click', displayThemeAudio)
     }
 
     // If the checkbox is not checked we can't use the drum pad and no colors or audio
@@ -54,6 +62,7 @@ checkBox.addEventListener('change', () =>
         {
             volumeDisplay.textContent = ""
         })
+        themeDisplay.textContent = "Sea"
     }
 })
 // Function that plays audio when the key is pressed
@@ -114,25 +123,10 @@ function scaleRemove()
     this.classList.remove('pressed')
 }
 
-// Preparing theme 2 
+// Sea theme audio
 const newTheme = document.querySelector('.newTheme')
 let themeDisplay = document.querySelector('.themeDisplay')
 
-newTheme.addEventListener('click', () =>
-{
-    let themeContent = themeDisplay.textContent
-    if(themeContent == "Fire" && checkBox.checked) 
-    {
-        document.documentElement.setAttribute('data-theme', 'sea');
-        themeDisplay.textContent = "Sea"
-    }
-    else if(themeContent == "Sea" && checkBox.checked) 
-    {
-        document.documentElement.setAttribute('data-theme', 'fire');
-        console.log('coucou')
-        themeDisplay.textContent = "Fire"
-    }
-})
 function audioPlay2(event)
 {
     const audio = document.querySelector(`audio[data-info='${event.keyCode}']`)
@@ -148,4 +142,26 @@ function audioPlay2(event)
     pads.classList.add('pressed')
 }
 
-window.addEventListener('keydown', audioPlay2)
+
+// Function that display different theme colors
+
+function displayThemeAudio()
+{
+    let themeContent = themeDisplay.textContent
+    if(themeContent == "Sea" && checkBox.checked) 
+    {
+        document.documentElement.setAttribute('data-theme', 'sea');
+        themeDisplay.textContent = "Fire"
+        window.removeEventListener('keydown', audioPlay)
+        window.addEventListener('keydown', audioPlay2)
+    }
+    else if(themeContent == "Fire" && checkBox.checked) 
+    {
+        document.documentElement.setAttribute('data-theme', 'fire');
+        console.log('coucou')
+        themeDisplay.textContent = "Sea"
+        window.removeEventListener('keydown', audioPlay2)
+        window.addEventListener('keydown', audioPlay)
+    }
+}
+

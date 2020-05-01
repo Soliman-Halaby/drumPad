@@ -293,7 +293,7 @@ NEW THEME BUTTON
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -370px;
+    top: -470px;
     color: var(--white)
 }
 /************
@@ -339,6 +339,12 @@ RESPONSIVE
     .range-slider__range 
     {
         width: 100px;
+    }
+    
+    .newTheme
+    {
+        position: relative;
+        top: -370px;
     }
 }
 
