@@ -157,7 +157,6 @@ function clickAudio2(event) {
 
 
 // Function that display different theme colors and audio 
-
 function displayThemeAudio()
 {
     let themeContent = themeDisplay.textContent

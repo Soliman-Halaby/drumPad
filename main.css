@@ -32,6 +32,7 @@
     --greyDisplay: #3742fa;
     --yellow : #373B44;
     --primaryColor : #4286f4;
+    --boxShadowOrange : #70a1ff44;
 }
 body
 {
@@ -294,7 +295,8 @@ NEW THEME BUTTON
     align-items: center;
     position: relative;
     top: -470px;
-    color: var(--white)
+    color: var(--white);
+    transition: 0.4s ease
 }
 /************
 
@@ -383,6 +385,10 @@ RESPONSIVE
         left: 380px;
     }
 
+    .range-slider
+    {
+        width: 115px;
+    }
     .range-slider__range 
     {
         width: 80px;
@@ -442,14 +448,25 @@ RESPONSIVE
 
     .volumeText
     {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .newTheme
     {
         position: relative;
-        width: 40px;
-        top: -155px;
+        width: 30px;
+        height: 30px;
+        top: -150px;
+        left: 6px;
+    }
+    .themeDisplay
+    {
+        font-size: 12px;
+    }
+    .range-slider
+    {
+        width: 100px;
+        font-size: 10px;
     }
 }
 
