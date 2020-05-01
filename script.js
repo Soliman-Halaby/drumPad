@@ -23,6 +23,7 @@ checkBox.addEventListener('change', () =>
         // Change the theme (colors)
         document.documentElement.setAttribute('data-theme', 'fire');
         textDisplay.textContent = 'Welcome'
+        window.removeEventListener('keydown', audioPlay2)
         window.addEventListener('keydown', audioPlay)
         for (let i = 0; i < allPads.length; i++) 
         {
