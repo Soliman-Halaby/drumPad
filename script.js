@@ -8,14 +8,10 @@ const padsRow3 = document.querySelectorAll('.key9, .key10, .key11, .key12')
 const allPads = document.querySelectorAll('.box')
 const volumeInput = document.querySelector('.volumeInput')
 const volumeDisplay = document.querySelector('.volumeDisplay')
+const newTheme = document.querySelector('.newTheme')
+let themeDisplay = document.querySelector('.themeDisplay')
 
-
-// volumeInput.addEventListener('click', () => 
-// {
-//     console.log(volumeInput.value)
-//     audio.volume = volumeInput.value
-// })
-
+// See if there's a change in the checkbox
 checkBox.addEventListener('change', () => 
 {
     // If the checkbox is checked we can use the drum pad, and colors appears
@@ -27,14 +23,7 @@ checkBox.addEventListener('change', () =>
         // Change the theme (colors)
         document.documentElement.setAttribute('data-theme', 'fire');
         textDisplay.textContent = 'Welcome'
-        if(themeDisplay == "Sea" && checkBox.checked)
-        {
-            window.addEventListener('keydown', audioPlay2)
-        }
-        else(themeDisplay == "Fire" && checkBox.checked)
-        {
-            window.addEventListener('keydown', audioPlay)
-        }
+        window.addEventListener('keydown', audioPlay)
         for (let i = 0; i < allPads.length; i++) 
         {
             allPads[i].addEventListener('click', clickAudio)
@@ -50,7 +39,7 @@ checkBox.addEventListener('change', () =>
     // If the checkbox is not checked we can't use the drum pad and no colors or audio
     else
     {
-        volumeDisplay.textContent = ""
+        volumeDisplay.textContent = ''
         document.documentElement.setAttribute('data-theme', 'default');
         textDisplay.textContent = ''
         window.removeEventListener('keydown', audioPlay)
@@ -60,12 +49,19 @@ checkBox.addEventListener('change', () =>
         }
         volumeInput.addEventListener('mousemove', () =>
         {
-            volumeDisplay.textContent = ""
+            volumeDisplay.textContent = ''
         })
-        themeDisplay.textContent = "Sea"
+        themeDisplay.textContent = 'Sea'
     }
 })
-// Function that plays audio when the key is pressed
+
+// Function that remove the scale and border after the animation is finished
+function scaleRemove()
+{
+    this.classList.remove('pressed')
+}
+
+// Function that plays audio when the key is pressed and theme is fire
 function audioPlay(event) 
 {
     // Take the audio according to the keyCode
@@ -91,18 +87,61 @@ function audioPlay(event)
     pads.classList.add('pressed')
 }
 
-// Function to play audio on click
-function clickAudio(event) {
+// Function that plays audio when the key is pressed and theme is sea
+function audioPlay2(event)
+{
+    const audio = document.querySelector(`audio[data-info='${event.keyCode}']`)
+    if(!audio)
+    {
+      return;
+    }
+    const nameAudio = audio.getAttribute('data-id')
+    audio.volume = volumeInput.value
+    textDisplay.textContent = nameAudio
+    const pads = document.querySelector(`.box[data-key='${event.keyCode}']`)
+    audio.currentTime = 0
+    audio.play()
+    pads.classList.add('pressed')
+}
 
+// Function to play audio on click and theme is fire
+function clickAudio(event) 
+{
     // Take the elements depending on the click
     const padsName = event.srcElement.className;
     const padsClass = document.querySelector(`.box[class='${padsName}']`)
-    const padsKey = padsClass.getAttribute("data-key")
+    const padsKey = padsClass.getAttribute('data-key')
 
     // Take each pad, and add the class pressed if clicked 
     const pads = document.querySelector(`.box[data-key='${padsKey}']`)
     pads.classList.add('pressed')
     const audio = document.querySelector(`audio[data-key='${padsKey}']`)
+    if(!audio) 
+    {
+      return;
+    }
+
+    // Define the audio volume depending on the input
+    audio.volume = volumeInput.value
+    const nameAudio = audio.getAttribute('data-id')
+    textDisplay.textContent = nameAudio
+
+    audio.currentTime = 0
+    audio.play()
+}
+
+// Function to play audio on click and theme is sea
+function clickAudio2(event) {
+    
+    // Take the elements depending on the click
+    const padsName = event.srcElement.className;
+    const padsClass = document.querySelector(`.box[class='${padsName}']`)
+    const padsKey = padsClass.getAttribute('data-key')
+    
+    // Take each pad, and add the class pressed if clicked 
+    const pads = document.querySelector(`.box[data-key='${padsKey}']`)
+    pads.classList.add('pressed')
+    const audio = document.querySelector(`audio[data-info='${padsKey}']`)
     if(!audio) {
       return;
     }
@@ -116,52 +155,45 @@ function clickAudio(event) {
     audio.play()
 }
 
-// Function that remove the scale and border after the key is pressed
 
-function scaleRemove()
-{
-    this.classList.remove('pressed')
-}
-
-// Sea theme audio
-const newTheme = document.querySelector('.newTheme')
-let themeDisplay = document.querySelector('.themeDisplay')
-
-function audioPlay2(event)
-{
-    const audio = document.querySelector(`audio[data-info='${event.keyCode}']`)
-    if(!audio)
-    {
-      return;
-    }
-    const nameAudio = audio.getAttribute('data-id')
-    textDisplay.textContent = nameAudio
-    const pads = document.querySelector(`.box[data-key='${event.keyCode}']`)
-    audio.currentTime = 0
-    audio.play()
-    pads.classList.add('pressed')
-}
-
-
-// Function that display different theme colors
+// Function that display different theme colors and audio 
 
 function displayThemeAudio()
 {
     let themeContent = themeDisplay.textContent
-    if(themeContent == "Sea" && checkBox.checked) 
+    if(themeContent == 'Sea' && checkBox.checked) 
     {
         document.documentElement.setAttribute('data-theme', 'sea');
-        themeDisplay.textContent = "Fire"
+        themeDisplay.textContent = 'Fire'
+        // Remove the first audio on keydown
         window.removeEventListener('keydown', audioPlay)
+        // Put the new audio  on keydown
         window.addEventListener('keydown', audioPlay2)
+        for (let i = 0; i < allPads.length; i++) 
+        {
+            // Remove the first audio on click
+            allPads[i].removeEventListener('click', clickAudio)
+        }
+        for (let i = 0; i < allPads.length; i++) 
+        {
+            // Put the new audio  on click
+            allPads[i].addEventListener('click', clickAudio2)
+        }
     }
-    else if(themeContent == "Fire" && checkBox.checked) 
+    else if(themeContent == 'Fire' && checkBox.checked) 
     {
         document.documentElement.setAttribute('data-theme', 'fire');
-        console.log('coucou')
-        themeDisplay.textContent = "Sea"
+        themeDisplay.textContent = 'Sea'
         window.removeEventListener('keydown', audioPlay2)
         window.addEventListener('keydown', audioPlay)
+        for (let i = 0; i < allPads.length; i++) 
+        {
+            allPads[i].removeEventListener('click', clickAudio2)
+        }
+        for (let i = 0; i < allPads.length; i++) 
+        {
+            allPads[i].addEventListener('click', clickAudio)
+        }
     }
 }
 

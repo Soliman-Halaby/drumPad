@@ -392,6 +392,12 @@ RESPONSIVE
     {
         font-size: 13px;
     }
+
+    .newTheme
+    {
+        position: relative;
+        top: -250px;
+    }
 }
 
 @media (max-width: 420px) 
@@ -437,6 +443,13 @@ RESPONSIVE
     .volumeText
     {
         font-size: 11px;
+    }
+
+    .newTheme
+    {
+        position: relative;
+        width: 40px;
+        top: -155px;
     }
 }
 
