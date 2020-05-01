@@ -51,7 +51,7 @@ checkBox.addEventListener('change', () =>
         }
         for (let i = 0; i < allPads.length; i++) 
         {
-            allPads[i].removeEventListener('click', clickAudio2)
+            allPads[i].removeEventListener('click', clickAudio)
         }
         volumeInput.addEventListener('mousemove', () =>
         {
@@ -65,6 +65,7 @@ checkBox.addEventListener('change', () =>
 function scaleRemove()
 {
     this.classList.remove('pressed')
+    this.classList.remove('pressed2')
 }
 
 // Function that plays audio when the key is pressed and theme is fire
@@ -107,7 +108,7 @@ function audioPlay2(event)
     const pads = document.querySelector(`.box[data-key='${event.keyCode}']`)
     audio.currentTime = 0
     audio.play()
-    pads.classList.add('pressed')
+    pads.classList.add('pressed2')
 }
 
 // Function to play audio on click and theme is fire
@@ -146,7 +147,7 @@ function clickAudio2(event) {
     
     // Take each pad, and add the class pressed if clicked 
     const pads = document.querySelector(`.box[data-key='${padsKey}']`)
-    pads.classList.add('pressed')
+    pads.classList.add('pressed2')
     const audio = document.querySelector(`audio[data-info='${padsKey}']`)
     if(!audio) {
       return;
