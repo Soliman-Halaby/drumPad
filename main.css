@@ -336,9 +336,8 @@ REPLAY BUTTON
 
 .repeat
 {
-    position: relative;
     color: var(--white);
-    font-size: 35px;
+    font-size: 40px;
 }
 /************
 
@@ -347,9 +346,11 @@ FOOTER
 
 footer
 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 200px;
     position: relative;
-    top: 170px;
-    border-top: 0.5px solid var(--yellow)
 }
 .footer
 {
@@ -365,18 +366,6 @@ footer
 RESPONSIVE
 
 *************/
-/* @media (max-width: 1370px) 
-{
-    .repeat
-    {
-        font-size: 26px;
-    }
-    footer
-    {
-        position: relative;
-        top: 250px;
-    }
-} */
 
 @media (max-width: 1260px) 
 {
