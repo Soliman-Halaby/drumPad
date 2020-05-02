@@ -206,11 +206,16 @@ function displayThemeAudio()
 }
 
 const loopButton = document.querySelector('.replayButton')
-
+loopButton.addEventListener('click', loopAudio)
 function loopAudio(event)
 {
-    const audio = document.querySelector(`audio[data-key='${event.keyCode}']`)
-    audio.setAttribute('loop')
+    const audio = document.querySelectorAll('audio')
+    for(i = 0; i<audio.length; i++)
+    {
+        console.log(audio[i])
+        audio[i].loop = true
+    }
+
 }
 
 function loopAudio2(event)
