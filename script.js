@@ -27,13 +27,13 @@ checkBox.addEventListener('change', () =>
         window.addEventListener('keydown', audioPlay)
         for (let i = 0; i < allPads.length; i++) 
         {
-            allPads[i].addEventListener('click', clickAudio)
+            allPads[i].addEventListener('mousedown', clickAudio)
         }
         volumeInput.addEventListener('mousemove', () =>
         {
             volumeDisplay.textContent = Math.floor(volumeInput.value * 100)
         })
-        newTheme.addEventListener('click', displayThemeAudio)
+        newTheme.addEventListener('mousedown', displayThemeAudio)
         
         // Remove the animation on the pressed keys
         allPads.forEach(pads => pads.addEventListener('transitionend', scaleRemove))
@@ -49,11 +49,11 @@ checkBox.addEventListener('change', () =>
         window.removeEventListener('keydown', audioPlay)
         for (let i = 0; i < allPads.length; i++) 
         {
-            allPads[i].removeEventListener('click', clickAudio)
+            allPads[i].removeEventListener('mousedown', clickAudio)
         }
         for (let i = 0; i < allPads.length; i++) 
         {
-            allPads[i].removeEventListener('click', clickAudio)
+            allPads[i].removeEventListener('mousedown', clickAudio)
         }
         volumeInput.addEventListener('mousemove', () =>
         {
@@ -180,12 +180,12 @@ function displayThemeAudio()
         for (let i = 0; i < allPads.length; i++) 
         {
             // Remove the first audio on click
-            allPads[i].removeEventListener('click', clickAudio)
+            allPads[i].removeEventListener('mousedown', clickAudio)
         }
         for (let i = 0; i < allPads.length; i++) 
         {
             // Put the new audio  on click
-            allPads[i].addEventListener('click', clickAudio2)
+            allPads[i].addEventListener('mousedown', clickAudio2)
         }
     }
     else if(themeContent == 'Fire' && checkBox.checked) 
@@ -196,11 +196,11 @@ function displayThemeAudio()
         window.addEventListener('keydown', audioPlay)
         for (let i = 0; i < allPads.length; i++) 
         {
-            allPads[i].removeEventListener('click', clickAudio2)
+            allPads[i].removeEventListener('mousedown', clickAudio2)
         }
         for (let i = 0; i < allPads.length; i++) 
         {
-            allPads[i].addEventListener('click', clickAudio)
+            allPads[i].addEventListener('mousedown', clickAudio)
         }
     }
 }

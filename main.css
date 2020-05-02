@@ -226,10 +226,6 @@ INPUT TYPE RANGE
 
 *************/
 
-*, *:before, *:after {
-    box-sizing: border-box;
-}
-
 .range-slider {
     margin: 10px 0 0 0%;
 }
@@ -306,6 +302,42 @@ NEW THEME BUTTON
     transition: 0.4s ease
 }
 
+.newTheme:hover
+{
+    transform: scale(1.1);
+    transition: 0.4s ease
+}
+
+/************
+
+REPLAY BUTTON
+
+*************/
+
+.replayButton
+{
+    position: relative;
+    top: -450px;
+    left: 3px;
+    background: var(--primaryColor);
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transition: 0.4s ease;
+}
+
+.replayButton:hover
+{
+    transform: scale(1.1);
+    transition: 0.4s ease;
+}
+.replayImage
+{
+    transform: scale(0.7)
+}
 /************
 
 FOOTER
@@ -386,6 +418,11 @@ RESPONSIVE
         top: -370px;
     }
 
+    .replayButton
+    {
+        position: relative;
+        top: -350px;
+    }
     footer
     {
         position: relative;
@@ -448,6 +485,12 @@ RESPONSIVE
         top: -250px;
     }
 
+    .replayButton
+    {
+        position: relative;
+        top: -240px;
+    }
+
     footer
     {
         position: relative;
@@ -457,6 +500,19 @@ RESPONSIVE
 
 @media (max-width: 420px) 
 {
+    .powerCheckbox
+    {
+        width: 50px;
+        height: 25px;
+        background-position: top 2.5px left 2px;
+        background-size: 20px;
+    }
+    
+    .powerCheckbox:checked
+    {
+        background-position: top 2px left 28px;
+    }
+
     .displayText
     {
         width: 125px;
@@ -512,16 +568,26 @@ RESPONSIVE
     {
         font-size: 12px;
     }
+
     .range-slider
     {
         width: 100px;
         font-size: 10px;
     }
 
+    .replayButton
+    {
+        width: 25px;
+        height: 25px;
+        position: relative;
+        top: -145px;
+        left: 10px;
+    }
+
     footer
     {
         position: relative;
-        top: 390px;
+        top: 330px;
     }
 }
 
