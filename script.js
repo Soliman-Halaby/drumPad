@@ -205,3 +205,16 @@ function displayThemeAudio()
     }
 }
 
+const loopButton = document.querySelector('.replayButton')
+
+function loopAudio(event)
+{
+    const audio = document.querySelector(`audio[data-key='${event.keyCode}']`)
+    audio.setAttribute('loop')
+}
+
+function loopAudio2(event)
+{
+    const audio = document.querySelector(`audio[data-info='${event.keyCode}']`)
+    audio.setAttribute('loop')
+}
