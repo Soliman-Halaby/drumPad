@@ -29,12 +29,14 @@ checkBox.addEventListener('change', () =>
         {
             allPads[i].addEventListener('click', clickAudio)
         }
-        allPads.forEach(pads => pads.addEventListener('transitionend', scaleRemove))
         volumeInput.addEventListener('mousemove', () =>
         {
             volumeDisplay.textContent = Math.floor(volumeInput.value * 100)
         })
         newTheme.addEventListener('click', displayThemeAudio)
+        
+        // Remove the animation on the pressed keys
+        allPads.forEach(pads => pads.addEventListener('transitionend', scaleRemove))
     }
 
     // If the checkbox is not checked we can't use the drum pad and no colors or audio
