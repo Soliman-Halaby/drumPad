@@ -337,8 +337,6 @@ REPLAY BUTTON
 .repeat
 {
     position: relative;
-    top: -3px;
-    left: -1px;
     color: var(--white);
     font-size: 40px;
 }
@@ -367,12 +365,13 @@ footer
 RESPONSIVE
 
 *************/
-@media (max-width: 1370px) 
+@media (max-width: 1360px) 
 {
     .repeat
     {
-        font-size: 26px;
-    }
+        position: relative;
+        top: 0px;
+        left: 0px;    }
     footer
     {
         position: relative;
