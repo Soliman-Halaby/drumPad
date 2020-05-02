@@ -369,9 +369,8 @@ RESPONSIVE
 {
     .repeat
     {
-        position: relative;
-        top: 0px;
-        left: 0px;    }
+        font-size: 26px;
+    }
     footer
     {
         position: relative;
