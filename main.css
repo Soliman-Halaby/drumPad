@@ -367,12 +367,16 @@ footer
 RESPONSIVE
 
 *************/
-@media (max-width: 4000px) 
+@media (max-width: 1370px) 
 {
+    .repeat
+    {
+        font-size: 26px;
+    }
     footer
     {
         position: relative;
-        top: 200px;
+        top: 250px;
     }
 }
 
