@@ -325,18 +325,22 @@ REPLAY BUTTON
     border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     transition: 0.4s ease;
 }
-
 .replayButton:hover
 {
     transform: scale(1.1);
     transition: 0.4s ease;
 }
-.replayImage
+
+.repeat
 {
-    transform: scale(0.7)
+    position: relative;
+    top: -3px;
+    left: -1px;
+    color: var(--white);
+    font-size: 40px;
 }
 /************
 
@@ -583,10 +587,14 @@ RESPONSIVE
         top: -145px;
         left: 10px;
     }
-    
-    .replayImage
+
+    .repeat
     {
-        transform: scale(0.5);
+        position: relative;
+        top: -1.5px;
+        left: -1px;
+        color: var(--white);
+        font-size: 30px;
     }
 
     footer
