@@ -331,6 +331,14 @@ footer
 RESPONSIVE
 
 *************/
+@media (max-width: 4000px) 
+{
+    footer
+    {
+        position: relative;
+        top: 200px;
+    }
+}
 
 @media (max-width: 1260px) 
 {
