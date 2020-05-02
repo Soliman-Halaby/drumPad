@@ -10,6 +10,11 @@ const volumeInput = document.querySelector('.volumeInput')
 const volumeDisplay = document.querySelector('.volumeDisplay')
 const newTheme = document.querySelector('.newTheme')
 let themeDisplay = document.querySelector('.themeDisplay')
+const loopButton = document.querySelector('.replayButton')
+const audio = document.querySelectorAll('audio')
+
+
+let loopCounter = 0
 
 // See if there's a change in the checkbox
 checkBox.addEventListener('change', () => 
@@ -23,12 +28,17 @@ checkBox.addEventListener('change', () =>
         // Change the theme (colors)
         document.documentElement.setAttribute('data-theme', 'fire');
         textDisplay.textContent = 'Welcome'
+
+        // Play different audios on key down
         window.removeEventListener('keydown', audioPlay2)
         window.addEventListener('keydown', audioPlay)
+        // Play different audios on mouse down
         for (let i = 0; i < allPads.length; i++) 
         {
             allPads[i].addEventListener('mousedown', clickAudio)
         }
+
+        // Update the volume input
         volumeInput.addEventListener('mousemove', () =>
         {
             volumeDisplay.textContent = Math.floor(volumeInput.value * 100)
@@ -37,6 +47,9 @@ checkBox.addEventListener('change', () =>
         
         // Remove the animation on the pressed keys
         allPads.forEach(pads => pads.addEventListener('transitionend', scaleRemove))
+
+        // Play the loop function
+        loopButton.addEventListener('click', loopAudio)
     }
 
     // If the checkbox is not checked we can't use the drum pad and no colors or audio
@@ -45,6 +58,7 @@ checkBox.addEventListener('change', () =>
         volumeDisplay.textContent = ''
         document.documentElement.setAttribute('data-theme', 'default');
         textDisplay.textContent = ''
+        // Remove all eventListener on audio play for keydown and click
         window.removeEventListener('keydown', audioPlay2)
         window.removeEventListener('keydown', audioPlay)
         for (let i = 0; i < allPads.length; i++) 
@@ -53,13 +67,20 @@ checkBox.addEventListener('change', () =>
         }
         for (let i = 0; i < allPads.length; i++) 
         {
-            allPads[i].removeEventListener('mousedown', clickAudio)
+            allPads[i].removeEventListener('mousedown', clickAudio2)
         }
         volumeInput.addEventListener('mousemove', () =>
         {
             volumeDisplay.textContent = ''
         })
         themeDisplay.textContent = 'Sea'
+        
+        // remove loop function when checkbox isn't checked
+        for(i = 0; i<audio.length; i++)
+        {
+            audio[i].loop = false
+        } 
+        loopCounter = 0
     }
 })
 
@@ -205,21 +226,27 @@ function displayThemeAudio()
     }
 }
 
-const loopButton = document.querySelector('.replayButton')
-loopButton.addEventListener('click', loopAudio)
+// Function that add the loop function on the audios for both themes to enjoy tests !
 function loopAudio(event)
 {
-    const audio = document.querySelectorAll('audio')
-    for(i = 0; i<audio.length; i++)
+    if(checkBox.checked)
     {
-        console.log(audio[i])
-        audio[i].loop = true
+        loopCounter++
     }
-
-}
-
-function loopAudio2(event)
-{
-    const audio = document.querySelector(`audio[data-info='${event.keyCode}']`)
-    audio.setAttribute('loop')
+    // Loop is true if the counter / 2 isn't equal to 0
+    if(loopCounter%2 != 0)
+    {
+        for(i = 0; i<audio.length; i++)
+        {
+            audio[i].loop = true
+        }
+    }
+    // Loop is false if the counter / 2 isn't equal to 0
+    else
+    {
+        for(i = 0; i<audio.length; i++)
+        {
+            audio[i].loop = false
+        } 
+    }
 }
