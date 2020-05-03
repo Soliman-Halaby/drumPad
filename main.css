@@ -366,6 +366,14 @@ REPLAY BUTTON
     font-size: 35px;
 }
 
+.loopText
+{
+    font-size: 15px;
+    color: var(--yellow);
+    position: relative;
+    top: -440px;
+    left: 3px;
+}
 /************
 
 FOOTER
@@ -444,6 +452,14 @@ RESPONSIVE
         position: relative;
         top: -350px;
     }
+
+    .loopText
+    {
+        font-size: 13px;
+        position: relative;
+        top: -350px;
+    }
+
     footer
     {
         position: relative;
@@ -508,6 +524,13 @@ RESPONSIVE
 
     .replayButton
     {
+        position: relative;
+        top: -240px;
+    }
+
+    .loopText
+    {
+        font-size: 12px;
         position: relative;
         top: -240px;
     }
@@ -585,6 +608,7 @@ RESPONSIVE
         top: -150px;
         left: 6px;
     }
+
     .themeDisplay
     {
         font-size: 12px;
@@ -603,6 +627,13 @@ RESPONSIVE
         position: relative;
         top: -145px;
         left: 10px;
+    }
+
+    .loopText
+    {
+        font-size: 8px;
+        position: relative;
+        top: -150px;
     }
 
     .repeat

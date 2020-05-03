@@ -11,8 +11,8 @@ const volumeDisplay = document.querySelector('.volumeDisplay')
 const newTheme = document.querySelector('.newTheme')
 let themeDisplay = document.querySelector('.themeDisplay')
 const loopButton = document.querySelector('.replayButton')
-const audio = document.querySelectorAll('audio')
-
+const audioLoop = document.querySelectorAll('audio')
+const loopText = document.querySelector('.loopText')
 
 let loopCounter = 0
 
@@ -50,6 +50,7 @@ checkBox.addEventListener('change', () =>
 
         // Play the loop function
         loopButton.addEventListener('click', loopAudio)
+        loopText.textContent = 'Loop mode : off'
     }
 
     // If the checkbox is not checked we can't use the drum pad and no colors or audio
@@ -76,11 +77,12 @@ checkBox.addEventListener('change', () =>
         themeDisplay.textContent = 'Sea'
         
         // remove loop function when checkbox isn't checked
-        for(i = 0; i<audio.length; i++)
+        for(i = 0; i<audioLoop.length; i++)
         {
-            audio[i].loop = false
+            audioLoop[i].loop = false
         } 
         loopCounter = 0
+        loopText.textContent = ''
     }
 })
 
@@ -236,17 +238,19 @@ function loopAudio(event)
     // Loop is true if the counter / 2 isn't equal to 0
     if(loopCounter%2 != 0)
     {
-        for(i = 0; i<audio.length; i++)
+        loopText.textContent = 'Loop mode : on'
+        for(i = 0; i<audioLoop.length; i++)
         {
-            audio[i].loop = true
+            audioLoop[i].loop = true
         }
     }
     // Loop is false if the counter / 2 isn't equal to 0
     else
     {
-        for(i = 0; i<audio.length; i++)
+        loopText.textContent = 'Loop mode : off'
+        for(i = 0; i<audioLoop.length; i++)
         {
-            audio[i].loop = false
+            audioLoop[i].loop = false
         } 
     }
 }
