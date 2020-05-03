@@ -110,22 +110,22 @@ Checkbox to put the power on / off of the drum pad
 ***********/
 .powerCheckbox
 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: absolute;
-  padding: 0;
-  border: 0;
-  width: 64px;
-  height: 32px;
-  border-radius: 32px;
-  transition: background-position 0.4s ease, background-color 0.4s ease;
-  background-color: var(--grey);
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4gICAgICAgIDx0aXRsZT5PdmFsIDE0PC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTE0IiBmaWxsPSIjRkZGRkZGIiBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiPjwvY2lyY2xlPiAgICA8L2c+PC9zdmc+');
-  background-repeat: no-repeat;
-  background-position: top 2px left 2px;
-  background-size: 28px;
-  cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    padding: 0;
+    border: 0;
+    width: 64px;
+    height: 32px;
+    border-radius: 32px;
+    transition: background-position 0.4s ease, background-color 0.4s ease;
+    background-color: var(--grey);
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAzMiAzMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4gICAgICAgIDx0aXRsZT5PdmFsIDE0PC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPjwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+ICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTE0IiBmaWxsPSIjRkZGRkZGIiBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiPjwvY2lyY2xlPiAgICA8L2c+PC9zdmc+');
+    background-repeat: no-repeat;
+    background-position: top 2px left 2px;
+    background-size: 28px;
+    cursor: pointer;
 }
 
 .powerCheckbox:checked
@@ -180,9 +180,11 @@ Pads Container and Pads colors
 .pressed
 {
     transition: 0.2s ease;
-    border: 1px solid var(--middleGrey);
+    border: 0.05px solid var(--middleGrey);
+    box-sizing: border-box;
     transform: scale(1.15);
 }
+
 .pressed2
 {
     transition: 0.2s ease;
@@ -193,10 +195,12 @@ Pads Container and Pads colors
 {
     background: var(--padsRow1);
 }
+
 .key5, .key6, .key7, .key8
 {
     background: var(--padsRow2);
 }
+
 .key9, .key10, .key11, .key12
 {
     background: var(--padsRow3);
@@ -215,6 +219,7 @@ ASIDE VOLUME FEATURE
     top: -400px;
     left: 770px;
 }
+
 .volumeText
 {
     display: flex;
@@ -226,13 +231,18 @@ INPUT TYPE RANGE
 
 *************/
 
-.range-slider {
+.range-slider 
+{
     margin: 10px 0 0 0%;
 }
-.range-slider {
+
+.range-slider 
+{
     width: 200px;
 }
-.range-slider__range {
+
+.range-slider__range 
+{
     -webkit-appearance: none;
     width: 150px;
     height: 10px;
@@ -242,7 +252,9 @@ INPUT TYPE RANGE
     padding: 0;
     margin: 0;
 }
-.range-slider__range::-webkit-slider-thumb {
+
+.range-slider__range::-webkit-slider-thumb 
+{
     appearance: none;
     width: 15px;
     height: 15px;
@@ -251,13 +263,18 @@ INPUT TYPE RANGE
     cursor: pointer;
     transition: background-color 0.15s ease-in-out;
 }
-.range-slider__range::-webkit-slider-thumb:hover {
+
+.range-slider__range::-webkit-slider-thumb:hover 
+{
     background: var(--greyDisplay);
 }
-.range-slider__range:active::-webkit-slider-thumb {
+
+.range-slider__range:active::-webkit-slider-thumb 
+{
     background: var(--greyDisplay);
 }
-.range-slider__range::-moz-range-thumb {
+.range-slider__range::-moz-range-thumb 
+{
     width: 15px;
     height: 15px;
     border: 0;
@@ -266,17 +283,24 @@ INPUT TYPE RANGE
     cursor: pointer;
     transition: background-color 0.15s ease-in-out;
 }
-.range-slider__range::-moz-range-thumb:hover {
+
+.range-slider__range::-moz-range-thumb:hover 
+{
     background: var(--greyDisplay);
 }
-.range-slider__range:active::-moz-range-thumb {
+
+.range-slider__range:active::-moz-range-thumb 
+{
     background: var(--greyDisplay);
 }
-.range-slider__range:focus::-webkit-slider-thumb {
+
+.range-slider__range:focus::-webkit-slider-thumb 
+{
     box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--greyDisplay);
 }
 
-input::-moz-focus-inner, input::-moz-focus-outer {
+input::-moz-focus-inner, input::-moz-focus-outer 
+{
     border: 0;
 }
 
@@ -328,6 +352,7 @@ REPLAY BUTTON
     align-items: center;
     transition: 0.4s ease;
 }
+
 .replayButton:hover
 {
     transform: scale(1.1);
@@ -340,6 +365,7 @@ REPLAY BUTTON
     color: var(--white);
     font-size: 35px;
 }
+
 /************
 
 FOOTER
@@ -351,6 +377,7 @@ footer
     top: 200px;
     border-top: 0.5px solid var(--yellow)
 }
+
 .footer
 {
     margin: 10px;
