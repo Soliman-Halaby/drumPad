@@ -14,6 +14,18 @@ const loopButton = document.querySelector('.replayButton')
 const audioLoop = document.querySelectorAll('audio')
 const loopText = document.querySelector('.loopText')
 
+
+// crée un contexteaudio
+const contexteAudio = new (window.AudioContext || window.webkitAudioContext)();
+
+// create Oscillator node
+const oscillator = contexteAudio.createOscillator();
+oscillator.connect(contexteAudio.destination);
+oscillator.type = 'sine'
+oscillator.frequency.value = 300; // valeur en hertz
+
+// oscillator.start();
+
 let loopCounter = 0
 
 // See if there's a change in the checkbox
