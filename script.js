@@ -13,19 +13,6 @@ let themeDisplay = document.querySelector('.themeDisplay')
 const loopButton = document.querySelector('.replayButton')
 const audioLoop = document.querySelectorAll('audio')
 const loopText = document.querySelector('.loopText')
-
-
-// crée un contexteaudio
-const contexteAudio = new (window.AudioContext || window.webkitAudioContext)();
-
-// create Oscillator node
-const oscillator = contexteAudio.createOscillator();
-oscillator.connect(contexteAudio.destination);
-oscillator.type = 'sine'
-oscillator.frequency.value = 300; // valeur en hertz
-
-// oscillator.start();
-
 let loopCounter = 0
 
 // See if there's a change in the checkbox
@@ -266,3 +253,29 @@ function loopAudio(event)
         } 
     }
 }
+
+const oscillatorButton = document.querySelector('.oscillatorButton')
+const oscillatorType = document.querySelector('.type')
+let buttonText = document.querySelector('.buttonText')
+
+
+oscillatorButton.addEventListener('click', () =>
+{
+    if(buttonText.textContent = 'Play !')
+    {
+        // Create a contextAudio
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Create oscillator node
+        const oscillator = audioContext.createOscillator()
+        oscillator.connect(audioContext.destination)
+        oscillator.type = oscillatorType.value
+        oscillator.frequency.value = 300; // valeur en hertz
+        oscillator.start()
+        buttonText.textContent = 'Mute'
+    }
+    else if(buttonText.textContent = 'Mute')
+    {
+        console.log('coucou')
+    }
+})
