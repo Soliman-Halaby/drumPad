@@ -554,7 +554,7 @@ RESPONSIVE
     .container
     {
         width: 700px;
-        height: 430px;
+        height: 730px;
     }
     .box
     {
@@ -607,7 +607,34 @@ RESPONSIVE
     footer
     {
         position: relative;
-        top: 230px;
+        top: 80px;
+    }
+    .range-slider__rangeOsci 
+    {
+        width: 600px;
+    }
+    
+    .oscillatorText
+    {
+        font-size: 15px;
+    }
+    
+    .oscillatorType, .buttonText
+    {
+        font-size: 10px;
+    }
+
+    .type
+    {
+        width: 130px;
+        height: 25px;
+    }
+
+    .oscillatorButton
+    {
+        width: 100px;
+        height: 50px;
+        margin: 10px;
     }
 }
 
@@ -623,7 +650,7 @@ RESPONSIVE
     .container
     {
         width: 500px;
-        height: 340px;
+        height: 540px;
     }
 
     .box
@@ -682,7 +709,42 @@ RESPONSIVE
     footer
     {
         position: relative;
-        top: 330px;
+        top: 80px;
+    }
+
+    .oscillatorContainer
+    {
+        margin-top: -40px;
+    }
+
+    .range-slider__rangeOsci 
+    {
+        width: 400px;
+    }
+    
+    .oscillatorText, .buttonText
+    {
+        font-size: 11px;
+    }
+    
+    .oscillatorType
+    {
+        margin-top: -10px;
+        font-size: 10px;
+    }
+
+    .type
+    {
+        margin-top: 10px;
+        width: 130px;
+        height: 25px;
+    }
+
+    .oscillatorButton
+    {
+        width: 80px;
+        height: 40px;
+        margin: 10px;
     }
 }
 
@@ -711,7 +773,7 @@ RESPONSIVE
     .container
     {
         width: 350px;
-        height: 240px;
+        height: 440px;
     }
 
     .box
@@ -792,7 +854,47 @@ RESPONSIVE
     footer
     {
         position: relative;
-        top: 310px;
+        top: 80px;
     }
+
+    .oscillatorContainer
+    {
+        margin-top: 0px;
+    }
+
+    .range-slider__rangeOsci 
+    {
+        width: 300px;
+    }
+    
+    .oscillatorText, .buttonText
+    {
+        font-size: 8px;
+    }
+    
+    .oscillatorType
+    {
+        margin-top: -10px;
+        font-size: 8px;
+    }
+
+    .type
+    {
+        width: 70px;
+        height: 20px;
+    }
+
+    .oscillatorButton
+    {
+        width: 60px;
+        height: 25px;
+        margin: 10px;
+    }
+
+    .hertzDisplay
+    {
+        font-size: 15px;
+    }
+
 }
 

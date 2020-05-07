@@ -260,6 +260,8 @@ const oscillatorType = document.querySelector('.type')
 const hertzDisplay = document.querySelector('.hertzDisplay')
 const hertzInput = document.querySelector('.hertzInput')
 let buttonText = document.querySelector('.buttonText')
+
+// Create a contextAudio
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const oscillator = audioContext.createOscillator()
 
@@ -275,8 +277,6 @@ oscillatorButton.addEventListener('click', () =>
     let buttonContent = buttonText.textContent
     if(buttonContent == 'Yeah !')
     {
-        // Create a contextAudio
-
         // Create oscillator node
         oscillator.type = oscillatorType.value
         oscillator.frequency.value = hertzInput.value; // valeur en hertz
@@ -286,7 +286,6 @@ oscillatorButton.addEventListener('click', () =>
     else if(buttonContent == 'mute')
     {
         buttonText.textContent = 'Yeah !'
-        console.log('miam')
         oscillator.disconnect(audioContext.destination)
     }
 })
