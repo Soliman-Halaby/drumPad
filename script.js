@@ -14,6 +14,15 @@ const loopButton = document.querySelector('.replayButton')
 const audioLoop = document.querySelectorAll('audio')
 const loopText = document.querySelector('.loopText')
 let loopCounter = 0
+const oscillatorButton = document.querySelector('.oscillatorButton')
+const oscillatorType = document.querySelector('.type')
+const hertzDisplay = document.querySelector('.hertzDisplay')
+const hertzInput = document.querySelector('.hertzInput')
+let buttonText = document.querySelector('.buttonText')
+
+// Create a contextAudio for oscillator
+const audioContext = new (window.AudioContext || window.webkitAudioContext)()
+const oscillator = audioContext.createOscillator()
 
 
 // See if there's a change in the checkbox
@@ -26,7 +35,7 @@ checkBox.addEventListener('change', () =>
         volumeDisplay.textContent = Math.floor(volumeInput.value * 100)
 
         // Change the theme (colors)
-        document.documentElement.setAttribute('data-theme', 'fire');
+        document.documentElement.setAttribute('data-theme', 'fire')
         textDisplay.textContent = 'Welcome'
 
         // Play different audios on key down
@@ -51,13 +60,22 @@ checkBox.addEventListener('change', () =>
         // Play the loop function
         loopButton.addEventListener('click', loopAudio)
         loopText.textContent = 'Loop mode : off'
+
+        // Shows the value of hertz user selects
+        hertzInput.addEventListener('mousemove', () =>
+        {
+        hertzDisplay.textContent = `Hertz : ${hertzInput.value}`
+        })
+        // Start oscillator to connect and disconnect
+        oscillator.start()
+        oscillatorButton.addEventListener('click', oscillatorPlay)
     }
 
     // If the checkbox is not checked we can't use the drum pad and no colors or audio
     else
     {
         volumeDisplay.textContent = ''
-        document.documentElement.setAttribute('data-theme', 'default');
+        document.documentElement.setAttribute('data-theme', 'default')
         textDisplay.textContent = ''
         // Remove all eventListener on audio play for keydown and click
         window.removeEventListener('keydown', audioPlay2)
@@ -100,7 +118,7 @@ function audioPlay(event)
     const audio = document.querySelector(`audio[data-key='${event.keyCode}']`)
     if(!audio)
     {
-      return;
+      return
     }
     
     // Take the data-id of the audio selected to display it
@@ -125,7 +143,7 @@ function audioPlay2(event)
     const audio = document.querySelector(`audio[data-info='${event.keyCode}']`)
     if(!audio)
     {
-      return;
+      return
     }
     const nameAudio = audio.getAttribute('data-id')
     audio.volume = volumeInput.value
@@ -140,7 +158,7 @@ function audioPlay2(event)
 function clickAudio(event) 
 {
     // Take the elements depending on the click
-    const padsName = event.srcElement.className;
+    const padsName = event.srcElement.className
     const padsClass = document.querySelector(`.box[class='${padsName}']`)
     const padsKey = padsClass.getAttribute('data-key')
 
@@ -150,7 +168,7 @@ function clickAudio(event)
     const audio = document.querySelector(`audio[data-key='${padsKey}']`)
     if(!audio) 
     {
-      return;
+      return
     }
 
     // Define the audio volume depending on the input
@@ -166,7 +184,7 @@ function clickAudio(event)
 function clickAudio2(event) {
     
     // Take the elements depending on the click
-    const padsName = event.srcElement.className;
+    const padsName = event.srcElement.className
     const padsClass = document.querySelector(`.box[class='${padsName}']`)
     const padsKey = padsClass.getAttribute('data-key')
     
@@ -175,7 +193,7 @@ function clickAudio2(event) {
     pads.classList.add('pressed2')
     const audio = document.querySelector(`audio[data-info='${padsKey}']`)
     if(!audio) {
-      return;
+      return
     }
 
     // Define the audio volume depending on the input
@@ -194,7 +212,7 @@ function displayThemeAudio()
     let themeContent = themeDisplay.textContent
     if(themeContent == 'Sea' && checkBox.checked) 
     {
-        document.documentElement.setAttribute('data-theme', 'sea');
+        document.documentElement.setAttribute('data-theme', 'sea')
         themeDisplay.textContent = 'Fire'
         // Remove the first audio on keydown
         window.removeEventListener('keydown', audioPlay)
@@ -213,7 +231,7 @@ function displayThemeAudio()
     }
     else if(themeContent == 'Fire' && checkBox.checked) 
     {
-        document.documentElement.setAttribute('data-theme', 'fire');
+        document.documentElement.setAttribute('data-theme', 'fire')
         themeDisplay.textContent = 'Sea'
         window.removeEventListener('keydown', audioPlay2)
         window.addEventListener('keydown', audioPlay)
@@ -255,31 +273,16 @@ function loopAudio(event)
     }
 }
 
-const oscillatorButton = document.querySelector('.oscillatorButton')
-const oscillatorType = document.querySelector('.type')
-const hertzDisplay = document.querySelector('.hertzDisplay')
-const hertzInput = document.querySelector('.hertzInput')
-let buttonText = document.querySelector('.buttonText')
 
-// Create a contextAudio
-const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-const oscillator = audioContext.createOscillator()
-
-hertzInput.addEventListener('mousemove', () =>
-{
-hertzDisplay.textContent = `Hertz : ${hertzInput.value}`
-})
-
-oscillator.start()
-
-oscillatorButton.addEventListener('click', () =>
+// Function that connect and disconnect the oscillator depending on the button clicked
+function oscillatorPlay()
 {
     let buttonContent = buttonText.textContent
     if(buttonContent == 'Yeah !')
     {
         // Create oscillator node
         oscillator.type = oscillatorType.value
-        oscillator.frequency.value = hertzInput.value; // valeur en hertz
+        oscillator.frequency.value = hertzInput.value
         oscillator.connect(audioContext.destination)
         buttonText.textContent = 'mute'
     }
@@ -288,4 +291,4 @@ oscillatorButton.addEventListener('click', () =>
         buttonText.textContent = 'Yeah !'
         oscillator.disconnect(audioContext.destination)
     }
-})
+}

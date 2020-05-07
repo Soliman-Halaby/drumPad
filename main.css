@@ -373,7 +373,7 @@ REPLAY BUTTON
 
 /************
 
-CONTAINER PART 2
+OSCILLATOR CONTAINER
 
 ************/
 
@@ -384,6 +384,7 @@ CONTAINER PART 2
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: -20px;
 }
 
 .oscillatorText
@@ -482,6 +483,7 @@ CONTAINER PART 2
 {
     background: var(--greyDisplay);
 }
+
 .range-slider__rangeOsci::-moz-range-thumb 
 {
     width: 15px;
@@ -526,11 +528,12 @@ FOOTER
 footer
 {
     position: relative;
-    top: 200px;
-    border-top: 0.5px solid var(--yellow)
+    top: 100px;
+    border-top: 0.5px solid var(--yellow);
+    margin-bottom: 10px;
 }
 
-.footer
+span.footer
 {
     margin: 10px;
     display: flex;
@@ -895,6 +898,5 @@ RESPONSIVE
     {
         font-size: 15px;
     }
-
 }
 
