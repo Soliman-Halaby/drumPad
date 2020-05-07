@@ -15,6 +15,7 @@ const audioLoop = document.querySelectorAll('audio')
 const loopText = document.querySelector('.loopText')
 let loopCounter = 0
 
+
 // See if there's a change in the checkbox
 checkBox.addEventListener('change', () => 
 {
@@ -256,26 +257,36 @@ function loopAudio(event)
 
 const oscillatorButton = document.querySelector('.oscillatorButton')
 const oscillatorType = document.querySelector('.type')
+const hertzDisplay = document.querySelector('.hertzDisplay')
+const hertzInput = document.querySelector('.hertzInput')
 let buttonText = document.querySelector('.buttonText')
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const oscillator = audioContext.createOscillator()
 
+hertzInput.addEventListener('mousemove', () =>
+{
+hertzDisplay.textContent = `Hertz : ${hertzInput.value}`
+})
+
+oscillator.start()
 
 oscillatorButton.addEventListener('click', () =>
 {
-    if(buttonText.textContent = 'Play !')
+    let buttonContent = buttonText.textContent
+    if(buttonContent == 'Yeah !')
     {
         // Create a contextAudio
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        
+
         // Create oscillator node
-        const oscillator = audioContext.createOscillator()
-        oscillator.connect(audioContext.destination)
         oscillator.type = oscillatorType.value
-        oscillator.frequency.value = 300; // valeur en hertz
-        oscillator.start()
-        buttonText.textContent = 'Mute'
+        oscillator.frequency.value = hertzInput.value; // valeur en hertz
+        oscillator.connect(audioContext.destination)
+        buttonText.textContent = 'mute'
     }
-    else if(buttonText.textContent = 'Mute')
+    else if(buttonContent == 'mute')
     {
-        console.log('coucou')
+        buttonText.textContent = 'Yeah !'
+        console.log('miam')
+        oscillator.disconnect(audioContext.destination)
     }
 })

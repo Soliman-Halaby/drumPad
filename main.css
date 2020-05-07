@@ -70,7 +70,7 @@ TITLE OF THE PAGE & ANIMATION
 .container
 {
     width: 960px;
-    height: 900px;
+    height: 940px;
     margin: 0 auto;
     background: var(--white);
     border-radius: 20px;
@@ -233,12 +233,8 @@ INPUT TYPE RANGE
 
 .range-slider 
 {
-    margin: 10px 0 0 0%;
-}
-
-.range-slider 
-{
     width: 200px;
+    margin: 10px 0 0 0%;
 }
 
 .range-slider__range 
@@ -397,6 +393,7 @@ CONTAINER PART 2
     font-weight: 700;
     letter-spacing: 2px;
     margin: 20px;
+    text-shadow: 3px 3px 15px #ebebeb;
 }
 
 .oscillatorType
@@ -411,7 +408,8 @@ CONTAINER PART 2
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    margin-top: 30px;
+    margin-bottom: 15px;
     width: 200px;
     height: 50px;
     background: var(--greyDisplay);
@@ -421,7 +419,7 @@ CONTAINER PART 2
 
 .oscillatorButton:hover
 {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 0.2s ease;
 }
 
@@ -449,6 +447,77 @@ CONTAINER PART 2
     color: #888888;
     outline: none;
 }
+
+.range-slider__rangeOsci 
+{
+    display: flex;
+    flex-direction: column;
+    -webkit-appearance: none;
+    width: 850px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--padsRow3);
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.range-slider__rangeOsci::-webkit-slider-thumb 
+{
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--padsRow1);
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.range-slider__rangeOsci::-webkit-slider-thumb:hover 
+{
+    background: var(--greyDisplay);
+}
+
+.range-slider__rangeOsci:active::-webkit-slider-thumb 
+{
+    background: var(--greyDisplay);
+}
+.range-slider__rangeOsci::-moz-range-thumb 
+{
+    width: 15px;
+    height: 15px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--greyDisplay);
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.range-slider__rangeOsci::-moz-range-thumb:hover 
+{
+    background: var(--greyDisplay);
+}
+
+.range-slider__rangeOsci:active::-moz-range-thumb 
+{
+    background: var(--greyDisplay);
+}
+
+.range-slider__rangeOsci:focus::-webkit-slider-thumb 
+{
+    box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--greyDisplay);
+}
+
+.hertzDisplay
+{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-weight: 700;
+    color: var(--padsRow1)
+}
+
 /************
 
 FOOTER
