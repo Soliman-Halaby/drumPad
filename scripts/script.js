@@ -62,6 +62,7 @@ checkBox.addEventListener('change', () =>
         loopText.textContent = 'Loop mode : off'
 
         // Shows the value of hertz user selects
+        hertzDisplay.textContent = `Hertz : ${hertzInput.value}`
         hertzInput.addEventListener('mousemove', () =>
         {
         hertzDisplay.textContent = `Hertz : ${hertzInput.value}`
@@ -101,6 +102,9 @@ checkBox.addEventListener('change', () =>
         } 
         loopCounter = 0
         loopText.textContent = ''
+        hertzDisplay.textContent = ''
+        oscillator.disconnect(audioContext.destination)
+        buttonText.textContent = 'Yeah !'
     }
 })
 

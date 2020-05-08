@@ -401,7 +401,7 @@ OSCILLATOR CONTAINER
 {
     font-size: 18px;
     text-transform: uppercase;
-    color: var(--greyDisplay)
+    color: var(--greyDisplay);
 }
 
 .oscillatorButton
