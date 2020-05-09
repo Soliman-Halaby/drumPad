@@ -19,11 +19,15 @@ const oscillatorType = document.querySelector('.type')
 const hertzDisplay = document.querySelector('.hertzDisplay')
 const hertzInput = document.querySelector('.hertzInput')
 let buttonText = document.querySelector('.buttonText')
+const overlayHertz = document.querySelector('.overlayHertz')
+const overlayButton = document.querySelector('.overlayButton')
 
 // Create a contextAudio for oscillator
 const audioContext = new (window.AudioContext || window.webkitAudioContext)()
 const oscillator = audioContext.createOscillator()
 
+
+overlayHertz.style.display = 'none'
 
 // See if there's a change in the checkbox
 checkBox.addEventListener('change', () => 
@@ -94,7 +98,11 @@ checkBox.addEventListener('change', () =>
             volumeDisplay.textContent = ''
         })
         themeDisplay.textContent = 'Sea'
-        
+
+        hertzInput.addEventListener('mousemove', () =>
+        {
+        hertzDisplay.textContent = ``
+        })
         // remove loop function when checkbox isn't checked
         for(i = 0; i<audioLoop.length; i++)
         {
@@ -102,7 +110,6 @@ checkBox.addEventListener('change', () =>
         } 
         loopCounter = 0
         loopText.textContent = ''
-        hertzDisplay.textContent = ''
         oscillator.disconnect(audioContext.destination)
         buttonText.textContent = 'Yeah !'
     }
@@ -296,3 +303,17 @@ function oscillatorPlay()
         oscillator.disconnect(audioContext.destination)
     }
 }
+
+
+hertzInput.addEventListener('mouseup', () => 
+{
+    if((hertzInput.value > 16000 || hertzInput.value < 300) && checkBox.checked)
+    {
+        overlayHertz.style.display = 'block'
+    }
+})
+
+overlayButton.addEventListener('click', () =>
+{
+    overlayHertz.style.display = 'none'
+})
