@@ -43,13 +43,12 @@ body
 
 .removeSelect
 {
-    -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
     -ms-user-select: none;
-    user-select: none;
-    -moz-user-select: none;
+    user-select: none; 
 }
 /***********
 
@@ -995,7 +994,7 @@ RESPONSIVE
 
     .hertzDisplay
     {
-        font-size: 15px;
+        font-size: 10px;
     }
 
     .overlayHertz
