@@ -1,7 +1,7 @@
 # drumPad
 
 https://soliman-Halaby.github.io/drumPad/
-
+https://github.com/Soliman-Halaby/drumPad
 
 
 This drumpad is easy to use. First, turn on the drumpad by checking the checkbox.                                             
