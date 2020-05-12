@@ -262,9 +262,8 @@ INPUT TYPE RANGE
     appearance: none;
     width: 15px;
     height: 15px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     background: var(--padsRow1);
-    cursor: pointer;
     transition: background-color 0.15s ease-in-out;
 }
 
@@ -478,6 +477,8 @@ OSCILLATOR CONTAINER
 {
     appearance: none;
     width: 15px;
+    position: relative;
+    top: -3px;
     height: 15px;
     border-radius: 50%;
     background: var(--padsRow1);
@@ -518,7 +519,8 @@ OSCILLATOR CONTAINER
 
 .range-slider__rangeOsci:focus::-webkit-slider-thumb 
 {
-    box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--greyDisplay);
+    box-shadow: 0 0 0 3px rgb(51, 48, 48),
+    0 0 0 6px var(--greyDisplay);
 }
 
 .hertzDisplay
