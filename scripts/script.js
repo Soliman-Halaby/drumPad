@@ -304,7 +304,7 @@ function oscillatorPlay()
     }
 }
 
-
+// Feature that appear  when the hertz go under 300 or above 16000
 hertzInput.addEventListener('mouseup', () => 
 {
     if((hertzInput.value > 16000 || hertzInput.value < 300) && checkBox.checked)
@@ -313,6 +313,7 @@ hertzInput.addEventListener('mouseup', () =>
     }
 })
 
+// Remove the feature by clicking on the button
 overlayButton.addEventListener('click', () =>
 {
     overlayHertz.style.display = 'none'
